@@ -1,0 +1,121 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-19T06:14:52.827202201Z",
+  "total_tasks": 10,
+  "completed_tasks": 0,
+  "failed_tasks": 0,
+  "status": "pending",
+  "tasks": [
+    {
+      "id": "task_001",
+      "category": "backend",
+      "type": "api",
+      "title": "Backend API: Contact Submission Endpoint",
+      "description": "Implement the /api/contact POST endpoint for contact form submissions. Accepts name, email, phone, and message, saves a new ContactSubmission to the PostgreSQL database, and returns the created object with submitted_at. Requires model ContactSubmission. Used by Contact page.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/backend/api/contact.go"
+    },
+    {
+      "id": "task_002",
+      "category": "backend",
+      "type": "api",
+      "title": "Backend API: NPV Calculator Endpoint",
+      "description": "Implement the /api/npv-calculate POST endpoint to calculate Net Present Value (NPV). Receives initial_investment, cash_flows array, and discount_rate, computes the NPV, and returns detailed results. Used by FinancialTools page.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/backend/api/npv_calculate.go"
+    },
+    {
+      "id": "task_003",
+      "category": "backend",
+      "type": "api",
+      "title": "Backend API: PI Calculator Endpoint",
+      "description": "Implement the /api/pi-calculate POST endpoint to calculate Profitability Index (PI). Receives initial_investment, cash_flows array, and discount_rate, computes PI and NPV, and returns detailed results. Used by FinancialTools page.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/backend/api/pi_calculate.go"
+    },
+    {
+      "id": "task_004",
+      "category": "backend",
+      "type": "api",
+      "title": "Backend Model: ContactSubmission",
+      "description": "Define the ContactSubmission GORM model with fields id (uint, PK), name (string), email (string, indexed), phone (string), message (string), submitted_at (time.Time). Used by /api/contact endpoint for storing submissions in PostgreSQL.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/backend/models/contact_submission.go"
+    },
+    {
+      "id": "task_005",
+      "category": "frontend",
+      "type": "page",
+      "title": "Frontend Page: Home",
+      "description": "Create the Home page at route '/'. Show immersive HeroSection (with animated background and CTA), Our Focus Areas via ServicesGrid (show all 6 services with animated cards/tiles), RotatingTestimonial, and Footer. Use Header at top. Layout and page sections styled using Tailwind CSS, Framer Motion for entrance animations, and glassmorphic theme.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/frontend/src/pages/Home.jsx"
+    },
+    {
+      "id": "task_006",
+      "category": "frontend",
+      "type": "page",
+      "title": "Frontend Page: AboutUs",
+      "description": "Create the AboutUs page at route '/about'. Present MissionStatement, TeamProfiles (static), MilestonesTimeline (animated on scroll), and Footer. Use Header at top. Apply slide-up/fade-in/parallax animations with Framer Motion, styled via Tailwind CSS and eco glassmorphism.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/frontend/src/pages/AboutUs.jsx"
+    },
+    {
+      "id": "task_007",
+      "category": "frontend",
+      "type": "page",
+      "title": "Frontend Page: Services",
+      "description": "Create the Services page at route '/services'. Show all 6 Focus Areas in detail via ServicesGrid and FocusAreaDetails (each with card, icon, title, description, animated in with staggered effects), ContactCTA, and Footer. Use Header at top. Glassmorphic styling via Tailwind CSS and Framer Motion for micro-interactions.",
+      "status": "pending",
+      "dependencies": [],
+      "file_path": "/frontend/src/pages/Services.jsx"
+    },
+    {
+      "id": "task_008",
+      "category": "frontend",
+      "type": "page",
+      "title": "Frontend Page: FinancialTools",
+      "description": "Create the FinancialTools page at route '/financial-tools'. Shows ToolsIntro, NPVCalculator, PICalculator (interactive calculators submitting to /api/npv-calculate and /api/pi-calculate, with animated result panels and input validation), and Footer. Responsive layout (side by side on desktop, stacked on mobile). Header at top. Uses Framer Motion, Tailwind CSS, eco glassmorphic styling.",
+      "status": "pending",
+      "dependencies": [
+        "task_002",
+        "task_003"
+      ],
+      "file_path": "/frontend/src/pages/FinancialTools.jsx"
+    },
+    {
+      "id": "task_009",
+      "category": "frontend",
+      "type": "page",
+      "title": "Frontend Page: Contact",
+      "description": "Create the Contact page at route '/contact'. Includes ContactForm (with name, email, phone, message fields and validation; submits via /api/contact), ContactInfoPanel (shows Aarohi Jain info clearly), and Footer. Header at top. Success/failure notification animates in. Glassmorphic/eco design, Tailwind CSS and Framer Motion for transitions.",
+      "status": "pending",
+      "dependencies": [
+        "task_001"
+      ],
+      "file_path": "/frontend/src/pages/Contact.jsx"
+    },
+    {
+      "id": "task_010",
+      "category": "frontend",
+      "type": "entry",
+      "title": "Frontend Entry: App.jsx",
+      "description": "Main entry point that defines routing and layout structure for EcoLoop. Imports and configures all pages: Home (/), AboutUs (/about), Services (/services), FinancialTools (/financial-tools), and Contact (/contact). Integrates Header (in navigation), Footer (global), and ensures navigation between all routes with react-router-dom v7. Sets up global styling (Tailwind CSS v4, glassmorphic theme), applies Framer Motion animation context. System context: Frontend pages are Home, AboutUs, Services, FinancialTools, Contact; backend API endpoints are /api/contact (POST), /api/npv-calculate (POST), /api/pi-calculate (POST); database model is ContactSubmission. All navigation and footer links must be present as per PRD. App.jsx is responsible for passing props/state to each page as needed and setting up error boundaries. Responsive, accessible, eco-themed application entry.",
+      "status": "pending",
+      "dependencies": [
+        "task_005",
+        "task_006",
+        "task_007",
+        "task_008",
+        "task_009"
+      ],
+      "file_path": "/frontend/src/App.jsx"
+    }
+  ]
+}

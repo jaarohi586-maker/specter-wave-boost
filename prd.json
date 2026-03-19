@@ -1,0 +1,400 @@
+{
+  "project_metadata": {
+    "project_name": "cosmic-nova-labs",
+    "project_category": "Platform",
+    "description": "EcoLoop is a professional sustainability and innovation consulting platform specializing in ideation, environmental analysis, financial tools, digital infrastructure, corporate citizenship, and sustainability solutions.",
+    "core_purpose": "Consulting",
+    "target_audience": "Businesses",
+    "key_features": [
+      "Showcases 6 sustainability focus areas",
+      "Interactive financial calculators (NPV, PI)",
+      "Animated, eco-themed UI",
+      "Professional contact form",
+      "Accessible on all devices",
+      "Modern, clean, glassmorphic design"
+    ]
+  },
+  "frontend": {
+    "pages": [
+      {
+        "page_name": "Home",
+        "route": "/",
+        "show_in_nav": true,
+        "nav_order": 1,
+        "purpose": "Showcases EcoLoop's brand, value, and all focus areas with professional and inviting first impression.",
+        "sections": [
+          "HeroSection",
+          "Our Focus Areas",
+          "Rotating Testimonial",
+          "Footer"
+        ],
+        "content_notes": "The Home page hero section features a visually immersive eco-friendly background (soft green and blue gradient, flowing waves or subtle leaf graphics). Animated brand tagline and CTA button ('Explore Our Services'). The 'Our Focus Areas' section uses ServicesGrid to highlight all 6 services with modern, animated tiles (icon, heading, short blurb, link to Services page). Text reveals and buttons use slide-up and fade-in entrances. Lower section highlights a rotating case study/testimonial quote. Footer is always visible with full contact info and navigation.",
+        "data_needs": [],
+        "is_protected": false
+      },
+      {
+        "page_name": "AboutUs",
+        "route": "/about",
+        "show_in_nav": true,
+        "nav_order": 2,
+        "purpose": "Present EcoLoop's background, expertise, vision, and credibility to website visitors.",
+        "sections": [
+          "MissionStatement",
+          "TeamProfiles",
+          "MilestonesTimeline",
+          "Footer"
+        ],
+        "content_notes": "Describes EcoLoop’s mission, values, experience, consultant profiles (static), and their commitment to sustainability and innovation. Timeline or highlights section with key milestones/achievements animated on scroll. Emphasizes professionalism, international standards, and industry expertise. All content uses slide-up, fade-in or parallax entrance animations. Footer with contact info on bottom.",
+        "data_needs": [],
+        "is_protected": false
+      },
+      {
+        "page_name": "Services",
+        "route": "/services",
+        "show_in_nav": true,
+        "nav_order": 3,
+        "purpose": "Explain EcoLoop’s consulting services and expertise in all 6 focus areas for prospective clients.",
+        "sections": [
+          "ServicesGrid",
+          "FocusAreaDetails",
+          "ContactCTA",
+          "Footer"
+        ],
+        "content_notes": "Details each of the 6 focus areas in dedicated cards/sections. Each card features a prominent icon, title, brief description, and optional 'Learn More' accordion/expand. Animated in with a staggered entrance. Each section includes real-world applications or companies benefitting from each focus area. Embedded CTA to Contact EcoLoop. Footer with contact details.",
+        "data_needs": [],
+        "is_protected": false
+      },
+      {
+        "page_name": "FinancialTools",
+        "route": "/financial-tools",
+        "show_in_nav": true,
+        "nav_order": 4,
+        "purpose": "Provide free, interactive financial tools (NPV and PI calculators) for sustainable business planning.",
+        "sections": [
+          "ToolsIntro",
+          "NPVCalculator",
+          "PICalculator",
+          "Footer"
+        ],
+        "content_notes": "Features interactive NPVCalculator and PICalculator components (side by side on desktop, stacked on mobile). Each calculator has labeled fields, input validation, info tooltips, submit button with micro-interactions, and animated result panel. Brief intro text explains business value of NPV/PI. Footer with contact details.",
+        "data_needs": [
+          "/api/npv-calculate",
+          "/api/pi-calculate"
+        ],
+        "is_protected": false
+      },
+      {
+        "page_name": "Contact",
+        "route": "/contact",
+        "show_in_nav": true,
+        "nav_order": 5,
+        "purpose": "Let potential clients or partners reach out—display contact info for Aarohi Jain and provide a dynamic contact form.",
+        "sections": [
+          "ContactForm",
+          "ContactInfoPanel",
+          "Footer"
+        ],
+        "content_notes": "The Contact page features ContactForm (fields: name, email, phone, message, required validation), displays a panel with direct contact info (contact person: Aarohi Jain, phone: +91 9479672606, email: jainaarohi267@gmail.com) styled clearly. On form submit, API call to /api/contact, success/failure notification animates in. Embedded map or nature illustration backgrounds optional. Footer is always visible.",
+        "data_needs": [
+          "/api/contact"
+        ],
+        "is_protected": false
+      }
+    ],
+    "navigation": {
+      "type": "main",
+      "position": "top",
+      "style": "horizontal",
+      "has_logo": true,
+      "has_search": false,
+      "extra_items": [],
+      "links": [
+        {
+          "label": "Home",
+          "route": "/"
+        },
+        {
+          "label": "About Us",
+          "route": "/about"
+        },
+        {
+          "label": "Services",
+          "route": "/services"
+        },
+        {
+          "label": "Financial Tools",
+          "route": "/financial-tools"
+        },
+        {
+          "label": "Contact",
+          "route": "/contact"
+        }
+      ]
+    },
+    "theme": {
+      "design_dna": "GLASSMORPHISM",
+      "color_scheme": "Eco green (#38B48E), Ocean blue (#3BA6DD), White, Soft Gray backgrounds",
+      "primary_color": "#38B48E",
+      "secondary_color": "#3BA6DD",
+      "accent_color": "#38B48E",
+      "font_family": "Roboto, sans-serif",
+      "font_type": "Modern, geometric sans-serif",
+      "border_radius": "24px (rounded-2xl)",
+      "shadow_style": "Soft, airy, glassmorphic drop shadows",
+      "animation_style": "Slide-up and fade, smooth scale/hover micro-interactions, scroll reveal",
+      "interaction_style": "Smooth, fluid transitions with tactile feedback"
+    },
+    "components": [
+      {
+        "component_name": "Header",
+        "type": "layout",
+        "used_on": [
+          "Home",
+          "AboutUs",
+          "Services",
+          "FinancialTools",
+          "Contact"
+        ],
+        "purpose": "Displays brand, main navigation links styled as professional eco-theme. Includes animated hover effects.",
+        "props": [
+          "navigationLinks",
+          "brandName"
+        ]
+      },
+      {
+        "component_name": "Footer",
+        "type": "layout",
+        "used_on": [
+          "Home",
+          "AboutUs",
+          "Services",
+          "FinancialTools",
+          "Contact"
+        ],
+        "purpose": "Displays full contact information, all navigation links, and brand name with eco-friendly styling in the footer.",
+        "props": [
+          "contactNumber",
+          "contactPerson",
+          "email",
+          "footerLinks",
+          "brandName"
+        ]
+      },
+      {
+        "component_name": "ServicesGrid",
+        "type": "feature",
+        "used_on": [
+          "Home",
+          "Services"
+        ],
+        "purpose": "Displays all 6 service areas as distinct, animated cards or tiles with relevant icons, concise descriptions and call-to-action.",
+        "props": [
+          "services"
+        ]
+      },
+      {
+        "component_name": "HeroSection",
+        "type": "hero",
+        "used_on": [
+          "Home"
+        ],
+        "purpose": "Prominently displays the site hero message, brief intro, dynamic background and CTA to Services or Contact.",
+        "props": [
+          "title",
+          "subtitle",
+          "ctaLabel",
+          "ctaRoute",
+          "backgroundImage"
+        ]
+      },
+      {
+        "component_name": "NPVCalculator",
+        "type": "tool",
+        "used_on": [
+          "FinancialTools"
+        ],
+        "purpose": "Interactive NPV calculator form with fields for Initial Investment, annual cash flows array, discount rate, and animated display of result. Submits to /api/npv-calculate.",
+        "props": [
+          "onSubmit",
+          "result"
+        ]
+      },
+      {
+        "component_name": "PICalculator",
+        "type": "tool",
+        "used_on": [
+          "FinancialTools"
+        ],
+        "purpose": "Interactive PI calculator form with fields for Initial Investment, annual cash flows array, discount rate, and animated display of result. Submits to /api/pi-calculate.",
+        "props": [
+          "onSubmit",
+          "result"
+        ]
+      },
+      {
+        "component_name": "ContactForm",
+        "type": "form",
+        "used_on": [
+          "Contact"
+        ],
+        "purpose": "Form for visitors to send a message (name, email, phone, message). Submits via /api/contact and shows animated success/error state.",
+        "props": [
+          "onSubmit",
+          "status"
+        ]
+      }
+    ],
+    "layout": {
+      "has_header": true,
+      "has_footer": true,
+      "has_sidebar": false,
+      "max_width": "1280px",
+      "spacing": "section: 10vh 5vw; generous padding/between elements",
+      "footer_links": [
+        {
+          "label": "Home",
+          "route": "/"
+        },
+        {
+          "label": "About Us",
+          "route": "/about"
+        },
+        {
+          "label": "Services",
+          "route": "/services"
+        },
+        {
+          "label": "Financial Tools",
+          "route": "/financial-tools"
+        },
+        {
+          "label": "Contact",
+          "route": "/contact"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "requires_backend": true,
+    "apis": [
+      {
+        "endpoint": "/api/contact",
+        "method": "POST",
+        "purpose": "Submit a contact form message from the website.",
+        "request_body": "{ \"name\": \"string\", \"email\": \"string\", \"phone\": \"string\", \"message\": \"string\" }",
+        "response": "{ \"id\": \"int\", \"name\": \"string\", \"email\": \"string\", \"phone\": \"string\", \"message\": \"string\", \"submitted_at\": \"string\" }",
+        "auth": false,
+        "used_by": [
+          "Contact"
+        ]
+      },
+      {
+        "endpoint": "/api/npv-calculate",
+        "method": "POST",
+        "purpose": "Calculate Net Present Value (NPV) based on cash flows and discount rate.",
+        "request_body": "{ \"initial_investment\": \"float\", \"cash_flows\": \"float[]\", \"discount_rate\": \"float\" }",
+        "response": "{ \"npv\": \"float\", \"details\": { \"periods\": \"int\", \"cash_flows\": \"float[]\", \"discount_rate\": \"float\", \"npv_breakdown\": \"float[]\" } }",
+        "auth": false,
+        "used_by": [
+          "FinancialTools"
+        ]
+      },
+      {
+        "endpoint": "/api/pi-calculate",
+        "method": "POST",
+        "purpose": "Calculate Profitability Index (PI) based on cash flows and discount rate.",
+        "request_body": "{ \"initial_investment\": \"float\", \"cash_flows\": \"float[]\", \"discount_rate\": \"float\" }",
+        "response": "{ \"pi\": \"float\", \"npv\": \"float\", \"details\": { \"periods\": \"int\", \"cash_flows\": \"float[]\", \"discount_rate\": \"float\", \"pv_of_inflows\": \"float\" } }",
+        "auth": false,
+        "used_by": [
+          "FinancialTools"
+        ]
+      }
+    ],
+    "database": {
+      "models": [
+        {
+          "model_name": "ContactSubmission",
+          "fields": [
+            {
+              "name": "id",
+              "type": "uint"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "phone",
+              "type": "string"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "submitted_at",
+              "type": "time.Time"
+            }
+          ],
+          "relationships": [],
+          "indexes": [
+            "email"
+          ]
+        }
+      ]
+    },
+    "authentication": {
+      "required": false,
+      "type": "",
+      "providers": [],
+      "protected_apis": null
+    },
+    "external_apis": [],
+    "file_storage": {
+      "required": false,
+      "types": [],
+      "max_size": "0MB"
+    }
+  },
+  "technical_specs": {
+    "frontend": {
+      "framework": "React.js",
+      "routing": "react-router-dom (v7)",
+      "styling": "Tailwind CSS v4 using eco glassmorphism style",
+      "state_management": "React state/hooks, useState + useEffect as needed",
+      "animation": "Framer Motion: Slide-up + fade, scroll reveal, microinteractions for hover/click",
+      "dependencies": [
+        "react",
+        "react-dom",
+        "react-router-dom@^7.0.0",
+        "@tailwindcss/postcss@^4.0.0",
+        "tailwindcss@^4.0.0",
+        "@tailwindcss/vite",
+        "autoprefixer@^10.4.21",
+        "framer-motion",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge",
+        "@faker-js/faker",
+        "vite@^6.1.0",
+        "postcss@^8.5.1"
+      ]
+    },
+    "backend": {
+      "framework": "Go (Gin)",
+      "database": "PostgreSQL (used for storing contact submissions)",
+      "orm": "GORM",
+      "auth": "None",
+      "dependencies": [
+        "github.com/gin-gonic/gin",
+        "gorm.io/gorm",
+        "gorm.io/driver/postgres"
+      ]
+    }
+  }
+}
